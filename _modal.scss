@@ -1,0 +1,116 @@
+//***********
+//* c-modal *
+//***********
+.c-modal {
+  align-items: center;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.4);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  outline: 0;
+  overflow: hidden;
+  padding: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 3600;
+
+  &__content {
+    background: var(--whiteNormal);
+    border-radius: var(--borderRadiusContentModal);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: var(--maxWidthMobileContentModal);
+    padding: var(--paddingContentModal);
+    position: relative;
+    width: 100%;
+
+    @include mobile {
+      max-width: var(--maxWidthContentModal);
+    }
+
+    @include to-mobile {
+      align-self: flex-end;
+      border-radius: var(--borderRadiusMobileContentModal);
+      max-height: 90vh;
+    }
+
+    &--small {
+      max-width: var(--maxWidthSmallContentModal);
+    }
+
+    &--large {
+      max-width: var(--maxWidthLargeContentModal);
+    }
+
+    &--scrolling {
+      .c-modal__header {
+        box-shadow: var(--boxShadowXXSmall);
+        padding: var(--paddingMobileHeaderScrollingModal);
+
+        @include mobile {
+          padding: var(--paddingHeaderScrollingModal);
+        }
+      }
+
+      .c-modal__title {
+        font-size: var(--fontSizeXLarge);
+      }
+
+      .c-modal__footer {
+        box-shadow: var(--boxShadowXXSmall);
+        padding: var(--paddingMobileFooterScrollingModal);
+
+        @include mobile {
+          padding: var(--paddingFooterScrollingModal);
+        }
+      }
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: var(--spaceXSmall);
+    top: 11px;
+  }
+
+  &__header {
+    padding: var(--paddingMobileHeaderModal);
+
+    @include mobile {
+      padding: var(--paddingHeaderModal);
+    }
+  }
+
+  &__title {
+    line-height: var(--lineHeightXXLarge);
+    margin: 0;
+
+    @include mobile-max {
+      font-size: var(--fontSizeXLarge);
+    }
+  }
+
+  &__body {
+    overflow: hidden auto;
+    padding: var(--paddingMobileBodyModal);
+
+    @include mobile {
+      padding: var(--paddingBodyModal);
+    }
+  }
+
+  &__footer {
+    padding: var(--paddingMobileFooterModal);
+
+    @include mobile {
+      padding: var(--paddingFooterModal);
+    }
+  }
+}
+
+
